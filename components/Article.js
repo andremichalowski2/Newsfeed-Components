@@ -151,10 +151,96 @@ const data = [
    constructorButton.addEventListener('click', e => {
      constructorArticle.classList.toggle('article-open');
    });
+
+// // 
+ //5. >>> PROMPT DOES NOT SPECIFY CONSTRUCTOR SEE BELOW FUNCTION FOR ALTERNATIVE
+ //
+ //5. Create a new article:
+ //   // 1. Create HTML markup:
+ //     const newTitle = document.createElement('h2');
+ //     const newDate = document.createElement('p');
+ //     const newParagraph = document.createElement('p');
+ //   // 2. Define HTML structure:
+ //     constructorArticle.append(newTitle, newDate, newParagraph);
+ //   // 3. Add class:
+ //     newTitle.classList.add('article');
+ //     newDate.classList.add('date');
+ //   // 4. Add content:
+ //     newTitle.textContent = 'NewTitle';
+ //     newDate.textContent - 'Oct 30th 2019';
+ //     newParagraph.textContent = `Boggarts lavender robes, Hermione Granger Fantastic Beasts and Where to Find Them. Bee in your bonnet Hand of Glory elder
+ //     wand, spectacles House Cup Bertie Bott’s Every Flavor Beans Impedimenta. Stunning spells tap-dancing spider Slytherin’s Heir
+ //     mewing kittens Remus Lupin. Palominos scarlet train black robes, Metamorphimagus Niffler dead easy second bedroom. Padma
+ //     and Parvati Sorting Hat Minister of Magic blue turban remember my last.`;
+ 
+ // 5. Return: 
  
 //STEP 3: return the entire component.
    return constructorArticle;
  }
+ 
+
+
+ 
+ //-----Append Manual and Loop------//
+ const body = document.querySelector('body');
+ console.log(body);
+ // Append Manual:
+   // function appendbody() {
+   //   body.append(createArticle('ttlEx', 'dateEx', 'cntnt1Ex', 'cntnt2Ex', 'cntnt3Ex'));
+   // };
+   // appendbody();
+ 
+ // Append Loop
+   data.forEach((data => {
+         body.append(articleMaker(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph));
+       }))
+ 
+ 
+   
+ // Step 4: Outside your function, loop over the data. 
+           //At each iteration you'll use your component 
+           //to create an article and append it to the DOM inside the 'articles' div.
+ 
+       //Training kit setting up a new array with map.
+           // 
+           // let newComponents = data.map((arrayItem) => {
+           //   let newButton = buttonCreator(arrayItem);
+           
+           //   // Remember, we always need to return something when we use .map
+           //   return newButton;
+           // });
+       // ...continued.
+           //
+           // newComponents.forEach(component => {
+           //   parent.appendChild(component);
+           // });
+ 
+ const mapContainer = document.querySelector('.articles');
+ data.map((item) => {
+   console.log('The main box is being built');
+   console.log(mapContainer);
+   mapContainer.appendChild(articleMaker(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph));
+ });
+ 
+ 
+ // Step 5: Add a new article to the array. Make sure it is in the same format as the others. 
+ // Refresh the page to see the new article.
+
+       //see inside of the constructor function for alternative 
+ 
+ //       function newArticle () {
+ //         data.push({
+ //         title: "Hello",
+ //         date: "30-09-2019",
+ //         firstParagraph: "Interesting Information!",
+ //         secondParagraph: "Other interesting info",
+ //         thirdParagraph: "Ok...",
+ //       });
+ //       console.log('hello');
+ //     };
+ 
+ // newArticle();
  
 
     
