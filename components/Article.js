@@ -114,3 +114,47 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+//------------------------------------------------ PART 1: -----------------------------------------------------------------------//
+
+//STEP 1: articleMaker
+
+  //Create Function
+  function articleMaker(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+  // 1. Create HTML markup:
+    const constructorArticle = document.createElement('div');
+    const constructorTitle = document.createElement('h2');
+    const constructorDate = document.createElement('p');
+    const constructorP1 = document.createElement('p');
+    const constructorP2 = document.createElement('p');
+    const constructorP3 = document.createElement('p');
+    const constructorButton = document.createElement('span');
+ 
+  // 2. Define HTML structure:
+   constructorArticle.append(constructorTitle, constructorDate, constructorP1, constructorP2, constructorP3, constructorButton);
+ 
+  // 3. Add some class names:
+   constructorArticle.classList.add('article');
+   constructorDate.classList.add('date');
+   constructorButton.classList.add('expandButton');
+ 
+  // 4. Add some content:
+   constructorTitle.textContent = title;
+   constructorDate.textContent = date;
+   constructorP1.textContent = firstParagraph;
+   constructorP2.textContent = secondParagraph;
+   constructorP3.textContent = thirdParagraph;
+   constructorButton.textContent = 'click here';
+
+// STEP 2: Add an event listener to the expandButton span. 
+   // This event listener should toggle the class 'article-open' on the 'article' div.
+   constructorButton.addEventListener('click', e => {
+     constructorArticle.classList.toggle('article-open');
+   });
+ 
+//STEP 3: return the entire component.
+   return constructorArticle;
+ }
+ 
+
+    
